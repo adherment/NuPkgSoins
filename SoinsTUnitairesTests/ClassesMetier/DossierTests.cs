@@ -35,7 +35,15 @@ namespace ClassesMetier.Tests
         public void GetNbJoursSoinsTest()
         {
             Dossier unDossier = InitialiseDossier();
-            Assert.AreEqual(4, unDossier.GetNbJoursSoins(), "Le nombre de jours de soins doit être égal à 4" );
+            Assert.AreEqual(4, unDossier.GetNbJoursSoins(), "Le nombre de jours de soins doit être égal à 4");
+        }
+
+        [TestMethod()]
+        public void DernierePrestationTest()
+        {
+            Dossier unDossier = InitialiseDossier();
+            Prestation DernierePresta = new Prestation("Libelle P5", new DateTime(2015, 9, 10, 6, 0, 0), new Intervenant("Tournier", "Hélène"));
+            Assert.AreEqual(DernierePresta.ToString(), unDossier.DernierePrestation().ToString(), "Ce n'est pas la derniere prestation enregistrée dans le dossier");
         }
     }
 }
